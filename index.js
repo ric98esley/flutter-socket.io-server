@@ -9,7 +9,7 @@ const app = express();
 const server = require('http').createServer(app);
 module.exports.io = require('socket.io')(server);
 require('./sockets/socket');
-
+const {PORT} = process.env
 
 // Path publico
 
@@ -19,7 +19,7 @@ const publicPath = path.resolve( __dirname, 'public');
 app.use( express.static(publicPath));
 
 
-server.listen(process.env.PORT, (err )=>{
+server.listen(PORT, (err )=>{
     if (err) throw new Error(err);
-    console.log("Servidor corriendo en puerto", process.env.PORT);
+    console.log("Servidor corriendo en puerto", PORT);
 });

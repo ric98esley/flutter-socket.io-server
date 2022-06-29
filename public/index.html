@@ -21,10 +21,19 @@
         })
 
 
-        socket.emit('mensaje', {nombre : 'Ricardo'});
+        // socket.emit('mensaje', {nombre : 'Ricardo'});
 
-        socket.on('mensaje', function(payload){
-            console.log('Escuchando', payload);
+        // socket.on('mensaje', function(payload){
+        //     console.log('Escuchando', payload);
+        // })
+        socket.on('nuevo-mensaje', function(payload){
+            console.log('Tarea ', payload);
+        })
+
+        socket.on('active-bands', function(bands){
+            console.clear();
+            console.log('bandas activas ');
+            console.table(bands);
         })
 
     </script>
